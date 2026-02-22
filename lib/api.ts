@@ -1,68 +1,14 @@
-// import axios from "axios";
-// import type { Note } from "../Types/note";
-
-// const BASE_URL = "https://notehub-public.goit.study/api/notes";
-// const TOKEN = process.env.NEXT_PUBLIC_NOTEHUB_TOKEN;
-
-// interface FetchNotesResponse {
-//   notes: Note[];
-//   totalPages: number;
-// }
-
-// export const fetchNotes = async (
-//   search: string,
-//   page: number
-// ): Promise<FetchNotesResponse> => {
-//   const res = await axios.get<FetchNotesResponse>(BASE_URL, {
-//     headers: {
-//       Authorization: `Bearer ${TOKEN}`,
-//     },
-//     params: {
-//       search: search || undefined,
-//       page,
-//     },
-//   });
-
-//   return res.data;
-// };
-
-
-// export const deleteNote = async (id: string): Promise<Note> => {
-//   const res = await axios.delete<Note>(`${BASE_URL}/${id}`, {
-//     headers: {
-//       Authorization: `Bearer ${TOKEN}`,
-//     },
-//   });
-
-//   return res.data;
-// };
-
-// export const createNote = async (
-//   note: Omit<Note, "id" | "createdAt" | "updatedAt">
-// ): Promise<Note> => {
-//   const res = await axios.post<Note>(BASE_URL, note, {
-//     headers: {
-//       Authorization: `Bearer ${TOKEN}`,
-//     },
-//   });
-
-//   return res.data;
-// };
-
-// lib/api.ts
 import axios from "axios";
 import type { Note } from "../types/note";
 
 const BASE_URL = "https://notehub-public.goit.study/api/notes";
 const TOKEN = process.env.NEXT_PUBLIC_NOTEHUB_TOKEN;
 
-// --- Типи відповіді ---
 interface FetchNotesResponse {
   notes: Note[];
   totalPages: number;
 }
 
-// --- Отримати список нотаток ---
 export const fetchNotes = async (
   search: string,
   page: number
@@ -80,7 +26,6 @@ export const fetchNotes = async (
   return res.data;
 };
 
-// --- Отримати одну нотатку за ID ---
 export const fetchNoteById = async (id: string): Promise<Note> => {
   const res = await axios.get<Note>(`${BASE_URL}/${id}`, {
     headers: {
@@ -91,7 +36,6 @@ export const fetchNoteById = async (id: string): Promise<Note> => {
   return res.data;
 };
 
-// --- Створити нову нотатку ---
 export const createNote = async (
   note: Omit<Note, "id" | "createdAt" | "updatedAt">
 ): Promise<Note> => {
@@ -104,7 +48,6 @@ export const createNote = async (
   return res.data;
 };
 
-// --- Оновити існуючу нотатку ---
 export const updateNote = async (
   id: string,
   note: Partial<Omit<Note, "id" | "createdAt" | "updatedAt">>
@@ -118,7 +61,6 @@ export const updateNote = async (
   return res.data;
 };
 
-// --- Видалити нотатку ---
 export const deleteNote = async (id: string): Promise<Note> => {
   const res = await axios.delete<Note>(`${BASE_URL}/${id}`, {
     headers: {
