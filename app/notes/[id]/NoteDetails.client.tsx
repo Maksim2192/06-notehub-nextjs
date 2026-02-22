@@ -6,7 +6,7 @@ import { fetchNoteById } from "../../../lib/api";
 
 interface NoteDetailsClientProps {
   noteId: string;
-  dehydratedState: DehydratedState;
+  dehydratedState?: DehydratedState;
 }
 
 const queryClient = new QueryClient();
@@ -30,11 +30,16 @@ function NoteDetailsContent({ noteId }: { noteId: string }) {
 
   if (isLoading) return <p>Loading...</p>;
   if (isError || !note) return <p>Error loading note</p>;
+  
+  const formattedDate = new Date(note.createdAt).toLocaleString();
 
   return (
     <div>
       <h1>{note.title}</h1>
       <p>{note.content}</p>
+      <p><strong>Tag:</strong> {note.tag}</p>
+      <p><strong>Created At:</strong> {formattedDate}</p>
     </div>
+
   );
 }
