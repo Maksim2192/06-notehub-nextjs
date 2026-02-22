@@ -1,6 +1,6 @@
 import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
-import Providers from "./providers";
+import TanStackProvider from "../components/TanStackProvider/TanStackProvider";
 
 export default function RootLayout({
   children,
@@ -10,13 +10,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Providers>
+        <TanStackProvider>
         <Header/>
         {children}
         <Footer />
-         <div id="modal-root"></div>
-          <div id="__next"></div>
-          </Providers>
+          </TanStackProvider>
       </body>
     </html>
   );
