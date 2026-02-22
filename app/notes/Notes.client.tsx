@@ -1,13 +1,12 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { fetchNotes } from "../lib/api";
-import { NoteList } from "../components/NoteList/NoteList";
-import NoteForm from "../components/NoteForm/NoteForm";
-import Pagination from "../components/Pagination/Pagination";
-import Modal from "../components/Modal/Modal";
-import SearchBox from "../components/SearchBox/SearchBox";
-import Notes from "../notes/Notes.client";
+import { fetchNotes } from "../../lib/api";
+import { NoteList } from "../../components/NoteList/NoteList";
+import NoteForm from "../../components/NoteForm/NoteForm";
+import Pagination from "../../components/Pagination/Pagination";
+import Modal from "../../components/Modal/Modal";
+import SearchBox from "../../components/SearchBox/SearchBox";
 
 const App = () => {
   const [page, setPage] = useState(1);
@@ -64,9 +63,8 @@ const App = () => {
         <Modal onClose={() => setModalOpen(false)}>
           <NoteForm onClose={() => setModalOpen(false)} />
         </Modal>
-          )}
-
-        <Notes />
+      )}
+      
           
     </div>
   );

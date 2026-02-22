@@ -3,7 +3,7 @@ import * as Yup from "yup";
 import css from "./NoteForm.module.css";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { createNote } from "../../lib/api";
-import type { Note } from "../../Types/note";
+import type { Note } from "../../types/note";
 
 type NoteFormProps = {
   onClose: () => void;

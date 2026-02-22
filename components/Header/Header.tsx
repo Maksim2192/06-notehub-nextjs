@@ -13,7 +13,7 @@ export default function Header() {
                         <Link href="/">Home</Link>
                     </li>
                     <li>
-                        <Link href="../../notes/Notes.client.tsx">Notes</Link>
+                        <Link href="/notes">Notes</Link>
                     </li>
                 </ul>
             </nav>
